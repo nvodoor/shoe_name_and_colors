@@ -1,0 +1,33 @@
+.module {
+  width: 377px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.shoe_details {
+  padding: 5px;
+}
+
+.shoeType, .price {
+  color: rgb(17, 17, 17);
+  display: inline-block;
+  font-weight: 400;
+  font-family: "Helvetica Neue", Helvetica, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-stretch: 100%;
+}
+
+.price {
+  float: right;
+}
+
+.shoe_name {
+  color: rgb(17, 17, 17);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 26px;
+  font-stretch: 100%;
+  font-weight: 500;
+  letter-spacing: 0.182px;
+  line-height: 31.2px;
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Name = ({ name }) => (
-  <div>
+  <div className="shoe_name">
     <span>{name}</span>
   </div>
 );

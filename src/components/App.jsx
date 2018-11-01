@@ -12,18 +12,23 @@ class App extends React.Component {
 
     this.state = {
       shoeID: props.shoeID,
-      name: 'NIKE AIR JORDAN V2',
+      name: 'Air Jordan Retro V2',
       colors: [],
+      price: '$200',
+      shoeType: "Men's Shoe",
     };
   }
 
   render() {
-    const { name } = this.state;
-    const { colors } = this.state;
-    const { shoeID } = this.state;
+    const {
+      name, colors, shoeID, price, shoeType,
+    } = this.state;
+
     return (
       <div className="module">
-        <div className="shoe_name">
+        <div className="shoe_details">
+          <div className="shoeType">{shoeType}</div>
+          <div className="price">{price}</div>
           <Name name={name} shoeID={shoeID} />
         </div>
         <div className="color_grid">
