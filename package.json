@@ -1,0 +1,43 @@
+{
+  "name": "shoe_name_and_colors",
+  "version": "1.0.0",
+  "description": "Service component that displays the shoe name and all other available color options",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WARP-V/shoe_name_and_colors.git"
+  },
+  "keywords": [
+    "Nike",
+    "Jordan",
+    "shoes",
+    "images"
+  ],
+  "author": "Vignesh Balasundaram",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WARP-V/shoe_name_and_colors/issues"
+  },
+  "homepage": "https://github.com/WARP-V/shoe_name_and_colors#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.8",
+    "morgan": "^1.9.1",
+    "path": "^0.12.7",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2"
+  }
+}
