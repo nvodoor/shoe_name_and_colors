@@ -1,2 +1,5 @@
 # DO NOT INCLUDE node_modules
 node_modules
+
+# IGNORE webpack bundle
+/public/n&c_bundle.js
