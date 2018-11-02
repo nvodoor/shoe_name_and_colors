@@ -1,8 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-
-import App from './App';
 
 const ColorsRow = ({ images, row, curShoe }) => (
   <div className="color_row" id={`row_${row}`}>
