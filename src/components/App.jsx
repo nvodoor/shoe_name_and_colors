@@ -45,7 +45,6 @@ class App extends React.Component {
     const {
       name, colors, shoeID, price, shoeType,
     } = this.state;
-
     return (
       <div className="module">
         <div className="shoe_details">
