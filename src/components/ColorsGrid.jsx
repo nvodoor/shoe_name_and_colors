@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import 'regenerator-runtime/runtime';
 
+import ColorsRow from './ColorsRow';
+
 const axios = require('axios');
+const _ = require('lodash');
 
 class ColorsGrid extends React.Component {
   constructor(props) {
@@ -31,15 +34,15 @@ class ColorsGrid extends React.Component {
     }
     await Promise.all(shoeInformation);
     const newState = {};
-    newState.images = imageLinks;
+    newState.images = _.chunk(imageLinks, 5);
     this.setState(newState);
   }
 
   render() {
     const { images } = this.state;
     return (
-      <div>
-        <span>{ images }</span>
+      <div className="shoe_colors_grid">
+        {images.map((row, i) => <ColorsRow key={`row_${i + 1}`} images={row} row={i.toString()} />)}
       </div>
     );
   }
