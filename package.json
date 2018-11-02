@@ -4,7 +4,7 @@
   "description": "Service component that displays the shoe name and all other available color options",
   "main": "src/index",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest --coverage --detectOpenHandles --forceExit",
     "lint": "eslint --ignore-path .gitignore .",
     "watch": "webpack -d --watch",
     "build": "webpack -d",
