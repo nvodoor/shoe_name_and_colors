@@ -48,9 +48,10 @@ class ColorsGrid extends React.Component {
 
   render() {
     const { images, curShoe } = this.state;
+    const { changeShoe } = this.props;
     return (
       <div className="shoe_colors_grid">
-        {images.map((row, i) => <ColorsRow key={`row_${i + 1}`} curShoe={curShoe - (i * 5)} images={row} row={i.toString()} />)}
+        {images.map((row, i) => <ColorsRow key={`row_${i + 1}`} changeShoe={changeShoe} curShoe={curShoe - (i * 5)} images={row} row={i.toString()} />)}
       </div>
     );
   }
@@ -60,11 +61,13 @@ class ColorsGrid extends React.Component {
 ColorsGrid.propTypes = {
   ids: PropTypes.arrayOf(PropTypes.string),
   curShoe: PropTypes.string,
+  changeShoe: PropTypes.func,
 };
 
 ColorsGrid.defaultProps = {
   ids: ['no colors'],
   curShoe: '',
+  changeShoe: () => {},
 };
 
 

@@ -10,7 +10,7 @@ const axios = require('axios');
 class App extends React.Component {
   constructor(props) {
     super(props);
-
+    this.changeShoe = this.changeShoe.bind(this);
     this.state = {
       shoeID: props.shoeID,
       name: 'Air Jordan Retro V2',
@@ -22,6 +22,10 @@ class App extends React.Component {
 
   componentDidMount() {
     const { shoeID } = this.state;
+    this.findShoeInformation(shoeID);
+  }
+
+  changeShoe(shoeID) {
     this.findShoeInformation(shoeID);
   }
 
@@ -50,7 +54,7 @@ class App extends React.Component {
           <Name name={name} shoeID={shoeID} />
         </div>
         <div className="color_grid">
-          <ColorsGrid ids={colors} curShoe={shoeID} />
+          <ColorsGrid ids={colors} changeShoe={this.changeShoe} curShoe={shoeID} />
         </div>
       </div>
     );
