@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import 'regenerator-runtime/runtime';
 
 import Name from './Name';
-import Colors from './Colors';
+import ColorsGrid from './ColorsGrid';
 
-// const axios = require('axios');
+const axios = require('axios');
 
 class App extends React.Component {
   constructor(props) {
@@ -17,6 +18,23 @@ class App extends React.Component {
       price: '$200',
       shoeType: "Men's Shoe",
     };
+  }
+
+  componentDidMount() {
+    const { shoeID } = this.state;
+    this.findShoeInformation(shoeID);
+  }
+
+  async findShoeInformation(shoeID) {
+    let info = await axios.get(`/shoe/:${shoeID}`);
+    [info] = info.data;
+    const newState = {};
+    newState.shoeID = shoeID;
+    newState.name = info.shoeName;
+    newState.colors = info.shoeColors;
+    newState.price = info.price;
+    newState.shoeType = info.shoeLine;
+    this.setState(newState);
   }
 
   render() {
@@ -32,7 +50,7 @@ class App extends React.Component {
           <Name name={name} shoeID={shoeID} />
         </div>
         <div className="color_grid">
-          <Colors colors={colors} />
+          <ColorsGrid ids={colors} />
         </div>
       </div>
     );
