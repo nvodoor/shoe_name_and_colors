@@ -1,7 +1,5 @@
 .module {
   width: 377px;
-  border: 1px solid black;
-  border-radius: 5px;
 }
 
 .shoe_details {
@@ -16,6 +14,7 @@
   font-size: 16px;
   line-height: 24px;
   font-stretch: 100%;
+  margin-bottom: 4px;
 }
 
 .price {
@@ -25,9 +24,43 @@
 .shoe_name {
   color: rgb(17, 17, 17);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 26px;
+  font-size: 28px;
   font-stretch: 100%;
   font-weight: 500;
   letter-spacing: 0.182px;
   line-height: 31.2px;
+  padding-bottom: 32px;
+  margin-bottom: 32px;
+}
+
+.color_row {
+  width: 100%;
+}
+
+.shoe_color_option {
+  display: inline-block;
+  width: 18%;
+  padding-right: 4px;
+}
+
+.col_0 {
+  margin-left: 4px;
+}
+
+img {
+  width: 100%;
+}
+
+img:hover {
+  cursor: pointer;
+}
+
+.curShoe {
+  background: black;
+  padding: 0;
+  z-index: 2;
+}
+
+.curShoe_img {
+  opacity: 0.9;
 }

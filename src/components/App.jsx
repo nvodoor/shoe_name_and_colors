@@ -50,7 +50,7 @@ class App extends React.Component {
           <Name name={name} shoeID={shoeID} />
         </div>
         <div className="color_grid">
-          <ColorsGrid ids={colors} />
+          <ColorsGrid ids={colors} curShoe={shoeID} />
         </div>
       </div>
     );

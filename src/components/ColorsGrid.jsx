@@ -12,6 +12,7 @@ class ColorsGrid extends React.Component {
     super(props);
     this.state = {
       images: [],
+      curShoe: -1,
     };
   }
 
@@ -25,24 +26,31 @@ class ColorsGrid extends React.Component {
   async getImageLinks(ids) {
     const imageLinks = [];
     const shoeInformation = [];
+    const newState = {};
     for (let i = 0; i < ids.length; i += 1) {
+      const { curShoe } = this.props;
+      if (ids[i] === curShoe) {
+        newState.curShoe = i;
+      }
       const promise = axios.get(`/shoe/:${ids[i]}`);
       promise
-        .then(res => res.data[0].image)
+        .then((res) => {
+          const shoeTuple = [res.data[0].shoeID, res.data[0].image];
+          return shoeTuple;
+        })
         .then(image => imageLinks.push(image));
       shoeInformation.push(promise);
     }
     await Promise.all(shoeInformation);
-    const newState = {};
     newState.images = _.chunk(imageLinks, 5);
     this.setState(newState);
   }
 
   render() {
-    const { images } = this.state;
+    const { images, curShoe } = this.state;
     return (
       <div className="shoe_colors_grid">
-        {images.map((row, i) => <ColorsRow key={`row_${i + 1}`} images={row} row={i.toString()} />)}
+        {images.map((row, i) => <ColorsRow key={`row_${i + 1}`} curShoe={curShoe - (i * 5)} images={row} row={i.toString()} />)}
       </div>
     );
   }
@@ -51,10 +59,12 @@ class ColorsGrid extends React.Component {
 
 ColorsGrid.propTypes = {
   ids: PropTypes.arrayOf(PropTypes.string),
+  curShoe: PropTypes.string,
 };
 
 ColorsGrid.defaultProps = {
   ids: ['no colors'],
+  curShoe: '',
 };
 
 
