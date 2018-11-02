@@ -3,3 +3,6 @@ node_modules
 
 # IGNORE webpack bundle
 /public/n&c_bundle.js
+
+# INGORE coverage folder
+/coverage

@@ -4,7 +4,7 @@
   "description": "Service component that displays the shoe name and all other available color options",
   "main": "src/index",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --coverage",
     "lint": "eslint --ignore-path .gitignore .",
     "watch": "webpack -d --watch",
     "build": "webpack -d",
@@ -29,6 +29,7 @@
   "homepage": "https://github.com/WARP-V/shoe_name_and_colors#readme",
   "dependencies": {
     "axios": "^0.18.0",
+    "babel-core": "^7.0.0-bridge.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "lodash": "^4.17.11",
@@ -45,7 +46,6 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
-    "babel-loader": "^8.0.4",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "eslint": "^5.8.0",
