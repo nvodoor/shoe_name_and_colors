@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 
+const id = require('./randShoe');
+
 ReactDOM.render(
-  <App shoeID="AV1200-001" />,
+  <App shoeID={id} />,
   document.getElementById('root'),
 );
