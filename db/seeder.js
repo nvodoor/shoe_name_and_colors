@@ -46,6 +46,7 @@ for (let i = 0; i < IDS.length; i += 1) {
     shoeColors: info.ids,
     price: info.price,
     shoeLine: info.productLine,
+    shoeType: style,
     image,
   };
   shoeArr.push(shoe);

@@ -24,25 +24,15 @@ class ColorsGrid extends React.Component {
   }
 
   async getImageLinks(ids) {
-    const imageLinks = [];
-    const shoeInformation = [];
     const newState = {};
     for (let i = 0; i < ids.length; i += 1) {
       const { curShoe } = this.props;
       if (ids[i] === curShoe) {
         newState.curShoe = i;
       }
-      const promise = axios.get(`/shoe/:${ids[i]}`);
-      promise
-        .then((res) => {
-          const shoeTuple = [res.data[0].shoeID, res.data[0].image];
-          return shoeTuple;
-        })
-        .then(image => imageLinks.push(image));
-      shoeInformation.push(promise);
     }
-    await Promise.all(shoeInformation);
-    newState.images = _.chunk(imageLinks, 5);
+    const data = await axios.get(`/shoe/style/:${ids[0].split('-')[0]}`);
+    newState.images = _.chunk(data.data, 5);
     this.setState(newState);
   }
 

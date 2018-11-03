@@ -34,3 +34,22 @@ app.get('/shoe/:shoeID', ({ params }, res) => {
     }
   });
 });
+
+app.get('/shoe/style/:style', ({ params }, res) => {
+  const style = params.style.slice(1);
+  Shoe.find({ shoeType: style }, (err, shoes) => {
+    if (err) {
+      console.log(err);
+      res.end();
+    } else {
+      const images = [];
+      for (let i = 0; i < shoes.length; i += 1) {
+        const tuple = [];
+        tuple.push(shoes[i].shoeID);
+        tuple.push(shoes[i].image);
+        images.push(tuple);
+      }
+      res.send(images);
+    }
+  });
+});

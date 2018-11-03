@@ -36,11 +36,11 @@ describe('[ColorsGrid] Component Unit Tests', () => {
     expect(wrapper1.exists()).toBeTruthy();
   });
 
-  it('should correctly update state when getImageLinks function called', async () => {
+  it('should correctly update state on getImageLinks function call', async () => {
     window.axios = mockAxios;
     const instance = wrapper1.instance();
     expect(wrapper1.state('images').length).toBe(0);
-    await instance.getImageLinks(['AV1200-001']);
+    await instance.getImageLinks('AV1200-001');
     expect(wrapper1.state('images').length).toBe(1);
   });
 });

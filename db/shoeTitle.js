@@ -9,6 +9,7 @@ const shoeTitleSchema = new mongoose.Schema({
   price: String,
   shoeLine: String,
   image: String,
+  shoeType: String,
 });
 
 const Shoe = mongoose.model('ShoeInfo', shoeTitleSchema);
