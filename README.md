@@ -1,4 +1,4 @@
-# [WARP-V] Nike Jordan Shoes Display - Shoe Name & Colors
+# [WARP-V] Nike Jordan Shoes Display - Shoe Name/ Colors
 
 > Nike's Air Jordan online store allows the user to select a certain shoe, view the shoe name, color options, other related shoes, and several other features all on the same page. This module focuses on displaying the shoe name and all the other color choices for that certain shoe.
 
