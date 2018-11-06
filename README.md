@@ -24,7 +24,7 @@
 
 > Install the npm dependencies and seed the database before building webpack bundle
 
-> Server runs on port 3232
+> Server runs on port 3006
 
 ## Requirements
 

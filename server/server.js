@@ -12,16 +12,6 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(morgan('dev'));
 app.use(parser.json());
 
-// APP LISTENING PROTOCOL
-const PORT = 3232;
-app.listen(PORT, (error) => {
-  if (error) {
-    console.log(error);
-  }
-  console.log(`>>>>> Express server listening on port ${PORT}...`);
-});
-
-
 // SERVER REQUEST METHODS
 app.get('/shoe/:shoeID', ({ params }, res) => {
   const id = params.shoeID.slice(1);
@@ -52,4 +42,14 @@ app.get('/shoe/style/:style', ({ params }, res) => {
       res.send(images);
     }
   });
+});
+
+
+// APP LISTENING PROTOCOL
+const PORT = 3006;
+app.listen(PORT, (error) => {
+  if (error) {
+    console.log(error);
+  }
+  console.log(`>>>>> Express server listening on port ${PORT}...`);
 });
