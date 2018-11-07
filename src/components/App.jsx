@@ -30,7 +30,7 @@ class App extends React.Component {
   }
 
   async findShoeInformation(shoeID) {
-    let info = await axios.get(`/shoe/:${shoeID}`);
+    let info = await axios.get(`/:${shoeID}/:n&c`);
     [info] = info.data;
     const newState = {};
     newState.shoeID = shoeID;

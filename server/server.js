@@ -13,7 +13,7 @@ app.use(morgan('dev'));
 app.use(parser.json());
 
 // SERVER REQUEST METHODS
-app.get('/shoe/:shoeID', ({ params }, res) => {
+app.get('/:shoeID/:n&c', ({ params }, res) => {
   const id = params.shoeID.slice(1);
   Shoe.find({ shoeID: id }, (err, shoe) => {
     if (err) {
@@ -25,7 +25,7 @@ app.get('/shoe/:shoeID', ({ params }, res) => {
   });
 });
 
-app.get('/shoe/style/:style', ({ params }, res) => {
+app.get('/:shoeID/:n&c/:style', ({ params }, res) => {
   const style = params.style.slice(1);
   Shoe.find({ shoeType: style }, (err, shoes) => {
     if (err) {

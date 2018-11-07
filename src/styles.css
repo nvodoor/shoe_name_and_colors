@@ -1,12 +1,12 @@
-.module {
+#name .module {
   width: 377px;
 }
 
-.shoe_details {
+#name .shoe_details {
   padding: 5px;
 }
 
-.shoeType, .price {
+#name .shoeType, .price {
   color: rgb(17, 17, 17);
   display: inline-block;
   font-weight: 400;
@@ -17,11 +17,11 @@
   margin-bottom: 4px;
 }
 
-.price {
+#name .price {
   float: right;
 }
 
-.shoe_name {
+#name .shoe_name {
   color: rgb(17, 17, 17);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 28px;
@@ -33,37 +33,37 @@
   margin-bottom: 32px;
 }
 
-.color_row {
+#name .color_row {
   width: 100%;
 }
 
-.shoe_color_option {
+#name .shoe_color_option {
   display: inline-block;
   width: 18%;
   height: 67.859px;
   padding-right: 4px;
 }
 
-.col_0 {
+#name .col_0 {
   margin-left: 4px;
 }
 
-img {
+#name img {
   width: 100%;
   padding: 0;
 }
 
-img:hover {
+#name img:hover {
   cursor: pointer;
 }
 
-.curShoe {
+#name .curShoe {
   background: black;
   padding:0px;
   margin-right: 4px;
   z-index: 2;
 }
 
-.curShoe_img {
+#name .curShoe_img {
   opacity: 0.9;
 }
