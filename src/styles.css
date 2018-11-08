@@ -1,69 +1,59 @@
-#name .module {
-  width: 377px;
-}
-
-#name .shoe_details {
-  padding: 5px;
-}
-
-#name .shoeType, .price {
-  color: rgb(17, 17, 17);
-  display: inline-block;
-  font-weight: 400;
-  font-family: "Helvetica Neue", Helvetica, Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-stretch: 100%;
-  margin-bottom: 4px;
-}
-
-#name .price {
-  float: right;
-}
-
-#name .shoe_name {
-  color: rgb(17, 17, 17);
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 28px;
-  font-stretch: 100%;
-  font-weight: 500;
-  letter-spacing: 0.182px;
-  line-height: 31.2px;
-  padding-bottom: 32px;
-  margin-bottom: 32px;
-}
-
-#name .color_row {
+#colors-container .module {
   width: 100%;
 }
 
-#name .shoe_color_option {
+#colors-container .shoeType {
+  float: left;
+  color: rgb(17, 17, 17);
   display: inline-block;
-  width: 18%;
-  height: 67.859px;
-  padding-right: 4px;
+  font-family: "Helvetica Neue", Helvetica, Arial, Helvetica, sans-serif;
+  font-size: 12px;
 }
 
-#name .col_0 {
-  margin-left: 4px;
+#colors-container .price {
+  float: right;
+  color: rgb(17, 17, 17);
+  display: inline-block;
+  font-family: "Helvetica Neue", Helvetica, Arial, Helvetica, sans-serif;
+  font-size: 12px;
 }
 
-#name img {
+#colors-container .shoe_name {
+  width: 100%;
+  float: left;
+  color: rgb(17, 17, 17);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: 0.182px;
+  margin: 3px 0px 48px 0px;
+}
+
+#colors-container .color_row {
+  width: 100%;
+}
+
+#colors-container .shoe_color_option {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  margin: 0px 4px 0px 0px;
+}
+
+#colors-container img {
   width: 100%;
   padding: 0;
 }
 
-#name img:hover {
+#colors-container img:hover {
   cursor: pointer;
 }
 
-#name .curShoe {
+#colors-container .curShoe {
   background: black;
-  padding:0px;
-  margin-right: 4px;
   z-index: 2;
 }
 
-#name .curShoe_img {
+#colors-container .curShoe_img {
   opacity: 0.9;
 }

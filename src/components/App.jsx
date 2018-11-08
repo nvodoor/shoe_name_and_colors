@@ -12,7 +12,7 @@ class App extends React.Component {
     super(props);
     this.changeShoe = this.changeShoe.bind(this);
     this.state = {
-      shoeID: props.shoeID,
+      shoeID: '310805-408',
       name: 'Air Jordan Retro V2',
       colors: [],
       price: '$200',
@@ -30,7 +30,7 @@ class App extends React.Component {
   }
 
   async findShoeInformation(shoeID) {
-    let info = await axios.get(`/:${shoeID}/:n&c`);
+    let info = await axios.get(`/:${shoeID}/colors`);
     [info] = info.data;
     const newState = {};
     newState.shoeID = shoeID;
@@ -47,11 +47,9 @@ class App extends React.Component {
     } = this.state;
     return (
       <div className="module">
-        <div className="shoe_details">
-          <div className="shoeType">{shoeType}</div>
-          <div className="price">{price}</div>
-          <Name name={name} shoeID={shoeID} />
-        </div>
+        <div className="shoeType">{shoeType}</div>
+        <div className="price">{price}</div>
+        <Name name={name} shoeID={shoeID} />
         <div className="color_grid">
           <ColorsGrid ids={colors} changeShoe={this.changeShoe} curShoe={shoeID} />
         </div>
