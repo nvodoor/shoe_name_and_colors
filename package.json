@@ -7,7 +7,7 @@
     "test": "jest --coverage --detectOpenHandles --forceExit",
     "lint": "eslint --ignore-path .gitignore .",
     "watch": "webpack -d --watch",
-    "build": "webpack -d",
+    "build": "webpack -p",
     "start": "node server/server.js",
     "seed": "node -e 'require(\"./db/seeder.js\")()'"
   },
