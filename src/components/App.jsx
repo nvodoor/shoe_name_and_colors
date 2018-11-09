@@ -12,7 +12,7 @@ class App extends React.Component {
     super(props);
     this.changeShoe = this.changeShoe.bind(this);
     this.state = {
-      shoeID: '310805-408',
+      shoeID: props.shoeID,
       name: 'Air Jordan Retro V2',
       colors: [],
       price: '$200',
