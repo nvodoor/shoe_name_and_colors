@@ -5,7 +5,6 @@
 #colors-container .shoeType {
   float: left;
   color: rgb(17, 17, 17);
-  display: inline-block;
   font-family: "Helvetica Neue", Helvetica, Arial, Helvetica, sans-serif;
   font-size: 12px;
 }
@@ -13,7 +12,6 @@
 #colors-container .price {
   float: right;
   color: rgb(17, 17, 17);
-  display: inline-block;
   font-family: "Helvetica Neue", Helvetica, Arial, Helvetica, sans-serif;
   font-size: 12px;
 }
@@ -35,8 +33,8 @@
 
 #colors-container .shoe_color_option {
   display: inline-block;
-  width: 60px;
-  height: 60px;
+  width: 18%;
+  height: 57px;
   margin: 0px 4px 0px 0px;
 }
 
