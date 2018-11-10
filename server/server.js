@@ -1,6 +1,8 @@
 const express = require('express');
+
 const parser = require('body-parser');
 const morgan = require('morgan');
+const compression = require('compression');
 const path = require('path');
 
 const Shoe = require('../db/shoeTitle');
@@ -11,6 +13,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(morgan('dev'));
 app.use(parser.json());
+app.use(compression());
 
 // SERVER REQUEST METHODS
 app.get('/:shoeID/colors', ({ params }, res) => {
