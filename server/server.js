@@ -47,6 +47,57 @@ app.get('/:shoeID/colors/:style', ({ params }, res) => {
   });
 });
 
+app.post('/new/shoe', (req, res) => {
+  const values = req.body; 
+
+  let shoe = new Shoe({
+    shoeName: values.name,
+    shoeColors: values.color,
+    price: values.price,
+    shoeLine: values.shoeline,
+    image: values.image,
+    shoeType: values.shoetype
+  })
+
+  shoe.save((err, data) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(data);
+    }
+  });
+});
+
+app.delete('/:shoeID', ({ params }, res) => {
+
+  Shoe.findByIdAndDelete(params.shoeID.slice(1), (err, resp) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(resp);
+    }
+  })
+});
+
+app.update('/:shoeID', (res, req) => {
+  const shoeID = req.params.shoeID.slice(1);
+  const values = req.body;
+
+  Shoe.findByIdAndUpdate(shoeID, {
+    shoeName: values.name,
+    shoeColors: values.color,
+    price: values.price,
+    shoeLine: values.shoeLine,
+    image: values.image,
+    shoeType: values.shoetype
+  }, (err, result) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(result);
+    }
+  })
+})
 // APP LISTENING PROTOCOL
 const PORT = 3006;
 app.listen(PORT, (error) => {

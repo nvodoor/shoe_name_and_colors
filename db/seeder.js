@@ -16,7 +16,30 @@ const IDS = ['310805-408', '310806-408', '310806-002', '305381-113', '852542-306
   'AQ9084-063', 'AQ9084-006', 'AQ9084-100', 'AQ9084-300', 'AQ9084-010'];
 
 const prodLines = ['Men\'s Shoe', 'Women\'s Shoe', 'Men\'s Basketball Shoe', 'Women\'s Basketball Shoe'];
-const imgSrcs = ['https://s3.amazonaws.com/warp-v/images/136027_148.jpeg', 'https://s3.amazonaws.com/warp-v/images/305381_113.jpeg', 'https://s3.amazonaws.com/warp-v/images/554724_050.jpeg', 'https://s3.amazonaws.com/warp-v/images/555088_401.jpeg', 'https://s3.amazonaws.com/warp-v/images/AA1253_105.jpeg', 'https://s3.amazonaws.com/warp-v/images/AA1272_014.jpeg', 'https://s3.amazonaws.com/warp-v/images/AH6789_602.jpeg', 'https://s3.amazonaws.com/warp-v/images/AH6789_801.jpeg', 'https://s3.amazonaws.com/warp-v/images/AJ1936_001.jpeg', 'https://s3.amazonaws.com/warp-v/images/AJ2018_700.jpeg', 'https://s3.amazonaws.com/warp-v/images/AO1755_005.jpeg', 'https://s3.amazonaws.com/warp-v/images/AO2649_301.jpeg', 'https://s3.amazonaws.com/warp-v/images/AO8979_600.jpeg', 'https://s3.amazonaws.com/warp-v/images/AO9378_002.jpeg', 'https://s3.amazonaws.com/warp-v/images/AQ0070_014.jpeg', 'https://s3.amazonaws.com/warp-v/images/AQ1087_102.jpeg', 'https://s3.amazonaws.com/warp-v/images/AQ9084_006.jpeg', 'https://s3.amazonaws.com/warp-v/images/AQ9119_300.jpeg', 'https://s3.amazonaws.com/warp-v/images/AR0043_600.jpeg', 'https://s3.amazonaws.com/warp-v/images/AR1000_023.jpeg', 'https://s3.amazonaws.com/warp-v/images/AV2296_402.jpeg', 'https://s3.amazonaws.com/warp-v/images/AV3922_601.jpeg', 'https://s3.amazonaws.com/warp-v/images/AV7014_002.jpeg', 'https://s3.amazonaws.com/warp-v/images/BQ7930_400.jpeg'];
+const imgSrcs = ['https://s3.amazonaws.com/nike-database-it/images/136027_148.jpeg', 
+'https://s3.amazonaws.com/nike-database-it/images/305381_113.jpeg', 
+'https://s3.amazonaws.com/nike-database-it/images/554724_050.jpeg', 
+'https://s3.amazonaws.com/nike-database-it/images/555088_401.jpeg', 
+'https://s3.amazonaws.com/nike-database-it/images/AA1253_105.jpeg', 
+'https://s3.amazonaws.com/nike-database-it/images/AA1272_014.jpeg', 
+'https://s3.amazonaws.com/nike-database-it/images/AH6789_602.jpeg', 
+'https://s3.amazonaws.com/nike-database-it/images/AH6789_801.jpeg', 
+'https://s3.amazonaws.com/nike-database-it/images/AJ1936_001.jpeg', 
+'https://s3.amazonaws.com/nike-database-it/images/AJ2018_700.jpeg', 
+'https://s3.amazonaws.com/nike-database-it/images/AO1755_005.jpeg', 
+'https://s3.amazonaws.com/nike-database-it/images/AO2649_301.jpeg', 
+'https://s3.amazonaws.com/nike-database-it/images/AO8979_600.jpeg', 
+'https://s3.amazonaws.com/nike-database-it/images/AO9378_002.jpeg', 
+'https://s3.amazonaws.com/nike-database-it/images/AQ0070_014.jpeg', 
+'https://s3.amazonaws.com/nike-database-it/images/AQ1087_102.jpeg', 
+'https://s3.amazonaws.com/nike-database-it/images/AQ9084_006.jpeg', 
+'https://s3.amazonaws.com/nike-database-it/images/AQ9119_300.jpeg', 
+'https://s3.amazonaws.com/nike-database-it/images/AR0043_600.jpeg', 
+'https://s3.amazonaws.com/nike-database-it/images/AR1000_023.jpeg', 
+'https://s3.amazonaws.com/nike-database-it/images/AV2296_402.jpeg', 
+'https://s3.amazonaws.com/nike-database-it/images/AV3922_601.jpeg', 
+'https://s3.amazonaws.com/nike-database-it/images/AV7014_002.jpeg', 
+'https://s3.amazonaws.com/nike-database-it/images/BQ7930_400.jpeg'];
 const shoeNames = ['Air Jordan 11 Retro', 'Air Jordan 11', 'Air Jordan 10 Retro', 'Air Jordan Retro 10', 'Air Jordan Retro 8', 'Air Jordan 1 Mid Premium', 'Air Jordan 1 Mid', 'Air Jordan 9 Retro NRG', 'Air Jordan Legacy 312', 'Air Jordan 1 Moto', 'Jordan 88 Racer', 'Jordan Spizike', 'Air Jordan 5 Retro', 'Air Jordan Future', 'Air Jordan 1 Rebel XX', 'Air Jordan Legacy 312',
   'Jordan Jumpman Team II', 'Jordan Grind 2 Oklahoma', 'Jordan Grind 2 Michigan', 'Jordan Son Of Mars Low', 'Jordan Delta Speed TR', 'Jordan DNA LX', 'Jordan Relentless', 'Jordan Hydro XIII Retro', 'Jordan Jumpman Quick 23', 'Jordan Melo 1.5 SE', 'Jordan Hydro V Retro'];
 
