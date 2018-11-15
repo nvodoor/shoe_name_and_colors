@@ -9,7 +9,8 @@
     "watch": "webpack -d --watch",
     "build": "webpack -p",
     "start": "node server/server.js",
-    "seed": "node -e 'require(\"./db/seeder.js\")()'"
+    "seed": "node --max_old_space_size=16296 db/seeder.js && node --max_old_space_size=16296 db/seeder2.js",
+    "loader": "psql < db/schema.sql"
   },
   "repository": {
     "type": "git",
@@ -28,11 +29,13 @@
   },
   "homepage": "https://github.com/WARP-V/shoe_name_and_colors#readme",
   "dependencies": {
+    "aws-sdk": "^2.355.0",
     "axios": "^0.18.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-loader": "^8.0.4",
     "body-parser": "^1.18.3",
     "compression": "^1.7.3",
+    "csv-stringify": "^4.3.1",
     "express": "^4.16.4",
     "lodash": "^4.17.11",
     "mongoose": "^5.3.8",

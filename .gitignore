@@ -1,5 +1,8 @@
 # DO NOT INCLUDE node_modules
 node_modules
+records1.csv
+records2.csv
+records3.csv
 
 # IGNORE webpack bundle
 /public/n&c_bundle.js
