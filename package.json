@@ -10,7 +10,8 @@
     "build": "webpack -p",
     "start": "node server/server.js",
     "seed": "node --max_old_space_size=16296 db/seeder.js && node --max_old_space_size=16296 db/seeder2.js",
-    "loader": "psql < db/schema.sql"
+    "loader": "psql < db/schema.sql",
+    "mongoloader": "mongoimport --db nikeshoes --collection shoesinfo --type csv --columnsHaveTypes --fields 'id.string(),shoeID.string(),shoeName.string(),price.string(),shoeLine.string(),image.string(),shoeType.string()' --file records3.csv && mongoimport --db nikeshoes --collection shoesinfo --type csv --columnsHaveTypes --fields 'id.string(),shoeID.string(),shoeName.string(),price.string(),shoeLine.string(),image.string(),shoeType.string()' --file records2.csv"
   },
   "repository": {
     "type": "git",

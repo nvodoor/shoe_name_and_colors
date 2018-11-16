@@ -79,7 +79,7 @@ app.delete('/:shoeID', ({ params }, res) => {
   })
 });
 
-app.update('/:shoeID', (res, req) => {
+app.put('/:shoeID', (res, req) => {
   const shoeID = req.params.shoeID.slice(1);
   const values = req.body;
 
