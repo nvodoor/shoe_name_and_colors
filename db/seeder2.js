@@ -28,11 +28,11 @@ s3.listObjects({ Bucket: 'nike-database-it' }, (err, images) => {
   for (let i = 0; i < bucket.length; i += 1) {
     imgSrcs.push(`https://s3.amazonaws.com/nike-database-it/${bucket[i].Key}`);
   }
-  for (let i = 0; i < 6000001; i += 1) {
+  for (let i = 6000001; i < 10000001; i += 1) {
     if (i % 100000 === 0) {
       console.log(i);
     }
-    let ids = `${Math.floor((Math.random() * 899999) + 100000).toString()}-${Math.floor((Math.random() * 899) + 100).toString()}`;
+    let ids = `A${Math.floor((Math.random() * 89999) + 10000).toString()}-${Math.floor((Math.random() * 899) + 100).toString()}`;
     while (recording[ids]) {
       ids = `${Math.floor(Math.random() * 999999).toString()}-${Math.floor(Math.random() * 999).toString()}`;
     }
@@ -52,7 +52,7 @@ s3.listObjects({ Bucket: 'nike-database-it' }, (err, images) => {
     if (erroring) {
       console.log(erroring);
     }
-    fs.writeFile(`records${3}.csv`, output, (error) => {
+    fs.writeFile(`records${2}.csv`, output, (error) => {
       if (error) {
         console.log(error);
       }
