@@ -18,7 +18,7 @@ app.use(compression());
 // SERVER REQUEST METHODS
 app.get('/:shoeID/colors', ({ params }, res) => {
   const id = params.shoeID.slice(1);
-  Shoe.find({ shoeID: id }, (err, shoe) => {
+  Shoe.find({ shoeID: id}, (err, shoe) => {
     if (err) {
       console.log(err);
       res.end();
