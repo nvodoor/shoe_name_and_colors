@@ -32,7 +32,8 @@ class ColorsGrid extends React.Component {
       }
     }
     const { curShoe } = this.props;
-    const data = await axios.get(`/:${curShoe}/colors/:${ids[0].split('-')[0]}`);
+    const id = ids.split('-');
+    const data = await axios.get(`/:${curShoe}/colors/:${id[0]}`);
     newState.images = _.chunk(data.data, 5);
     this.setState(newState);
   }
@@ -40,6 +41,7 @@ class ColorsGrid extends React.Component {
   render() {
     const { images, curShoe } = this.state;
     const { changeShoe } = this.props;
+    console.log('line 44',images);
     return (
       <div className="shoe_colors_grid">
         {images.map((row, i) => <ColorsRow key={`row_${i + 1}`} changeShoe={changeShoe} curShoe={curShoe - (i * 5)} images={row} row={i.toString()} />)}

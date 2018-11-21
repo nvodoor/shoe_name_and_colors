@@ -5,7 +5,17 @@ const morgan = require('morgan');
 const compression = require('compression');
 const path = require('path');
 
-const Shoe = require('../db/shoeTitle');
+// const Shoe = require('../db/shoeTitle');
+const { Client } = require('pg');
+
+const client = new Client({
+  user: 'neilvodoor',
+  database: 'nike',
+  password: 'charizard',
+  host: 'localhost',
+  port: "5432",
+})
+
 
 const app = express();
 
@@ -18,33 +28,48 @@ app.use(compression());
 // SERVER REQUEST METHODS
 app.get('/:shoeID/colors', ({ params }, res) => {
   const id = params.shoeID.slice(1);
-  Shoe.find({ shoeID: id}, (err, shoe) => {
-    if (err) {
-      console.log(err);
-      res.end();
-    } else {
-      res.send(shoe);
-    }
-  });
+  client.connect();
+  const query = {
+    text: 'SELECT * FROM shoes WHERE shoeID = $1',
+    values: [id],
+  };
+  client.query(query)
+    .then((resp) => {
+      res.send(resp.rows[0]);
+    })
+    .catch(e => res.send(e));
 });
 
 app.get('/:shoeID/colors/:style', ({ params }, res) => {
   const style = params.style.slice(1);
-  Shoe.find({ shoeType: style }, (err, shoes) => {
-    if (err) {
-      console.log(err);
-      res.end();
-    } else {
-      const images = [];
-      for (let i = 0; i < shoes.length; i += 1) {
-        const tuple = [];
-        tuple.push(shoes[i].shoeID);
-        tuple.push(shoes[i].image);
-        images.push(tuple);
-      }
-      res.send(images);
-    }
-  });
+  // Shoe.find({ shoeType: style }, (err, shoes) => {
+  //   if (err) {
+  //     console.log(err);
+  //     res.end();
+  //   } else {
+  //     const images = [];
+  //     for (let i = 0; i < shoes.length; i += 1) {
+  //       const tuple = [];
+  //       tuple.push(shoes[i].shoeID);
+  //       tuple.push(shoes[i].image);
+  //       images.push(tuple);
+  //     }
+  //     res.send(images);
+  //   }
+  // });
+  const query = {
+    text: 'SELECT * FROM shoes where type = $1',
+    values: [style],
+  };
+  client.query(query)
+    .then((resp) => {
+      console.log(resp.rows);
+      res.send(resp.rows);
+    })
+    .catch((e) => {
+      console.log(e);
+      res.send(e);
+    });
 });
 
 app.post('/new/shoe', (req, res) => {
