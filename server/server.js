@@ -1,9 +1,12 @@
+// require('newrelic');
 const express = require('express');
 
 const parser = require('body-parser');
 const morgan = require('morgan');
 const compression = require('compression');
 const path = require('path');
+
+process.env.UV_THREADPOOL_SIZE = 10;
 
 // const Shoe = require('../db/shoeTitle');
 const { Client, Pool } = require('pg');
