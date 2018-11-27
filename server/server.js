@@ -1,10 +1,15 @@
 // require('newrelic');
-const express = require('express');
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+import express from 'express';
 
-const parser = require('body-parser');
-const morgan = require('morgan');
-const compression = require('compression');
-const path = require('path');
+import fs from 'fs';
+import parser from 'body-parser';
+import morgan from 'morgan';
+import compression from 'compression';
+import path from 'path';
+import App from '../src/components/App.jsx';
+
 
 process.env.UV_THREADPOOL_SIZE = 10;
 
@@ -12,11 +17,11 @@ process.env.UV_THREADPOOL_SIZE = 10;
 const { Client, Pool } = require('pg');
 
 const client = new Client({
-  user: 'neilvodoor',
-  database: 'nike',
-  password: 'charizard',
-  host: 'localhost',
-  port: "5432",
+ user: 'neilvodoor',
+ database: 'nike',
+ password: 'charizard',
+ host: 'localhost',
+ port: "5432",
 })
 
 client.connect();
@@ -31,6 +36,20 @@ app.use(parser.json());
 app.use(compression());
 
 // SERVER REQUEST METHODS
+app.get('/*', (req, res) => {
+  const application = ReactDOMServer.renderToString(<App />);
+
+  const indexFile = path.resolve('./public/index.html');
+  fs.readFile(indexFile, 'utf8', (err, data) => {
+    if (err) {
+      console.log('Error here: ', err);
+      res.status(500).send('Bad Request.');
+    } else {
+      res.send(data.replace(`<div id='colors-container'></div>`, `<div id='colors-container'>${application}</div>`));
+    }
+  })
+})
+
 app.get('/:shoeID/colors', ({ params }, res) => {
   const id = params.shoeID.slice(1);
   const query = {
