@@ -1,15 +1,8 @@
-// require('newrelic');
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
-import express from 'express';
-
-import fs from 'fs';
-import parser from 'body-parser';
-import morgan from 'morgan';
-import compression from 'compression';
-import path from 'path';
-import App from '../src/components/App.jsx';
-
+const express = require('express');
+const parser = require('body-parser');
+const morgan = require('morgan');
+const path = require('path');
+const compression = require('compression');
 
 process.env.UV_THREADPOOL_SIZE = 10;
 
@@ -17,15 +10,16 @@ process.env.UV_THREADPOOL_SIZE = 10;
 const { Client, Pool } = require('pg');
 
 const client = new Client({
- user: 'neilvodoor',
- database: 'nike',
- password: 'charizard',
- host: 'localhost',
- port: "5432",
+  user: 'neilvodoor',
+  database: 'nike',
+  password: 'charizard',
+  host: 'localhost',
+  port: "5432",
 })
 
 client.connect();
 
+const cache = {};
 
 const app = express();
 
@@ -36,33 +30,39 @@ app.use(parser.json());
 app.use(compression());
 
 // SERVER REQUEST METHODS
-app.get('/*', (req, res) => {
-  const application = ReactDOMServer.renderToString(<App />);
+// app.get('/*', (req, res) => {
+//   const application = ReactDOMServer.renderToString(<App />);
 
-  const indexFile = path.resolve('./public/index.html');
-  fs.readFile(indexFile, 'utf8', (err, data) => {
-    if (err) {
-      console.log('Error here: ', err);
-      res.status(500).send('Bad Request.');
-    } else {
-      res.send(data.replace(`<div id='colors-container'></div>`, `<div id='colors-container'>${application}</div>`));
-    }
-  })
-})
+//   const indexFile = path.resolve('./public/index.html');
+//   fs.readFile(indexFile, 'utf8', (err, data) => {
+//     if (err) {
+//       console.log('Error here: ', err);
+//       res.status(500).send('Bad Request.');
+//     } else {
+//       res.send(data.replace(`<div id='colors-container'></div>`, `<div id='colors-container'>${application}</div>`));
+//     }
+//   })
+// })
 
 app.get('/:shoeID/colors', ({ params }, res) => {
   const id = params.shoeID.slice(1);
   const query = {
-    text: 'SELECT * FROM shoes WHERE shoeID = $1',
+    text: 'SELECT * FROM shoes WHERE id = $1',
     values: [id],
   };
-  client.query(query)
-    .then((resp) => {
-      res.send(resp.rows[0]);
-    })
-    .catch((e) => {
-      res.send(e)
-    });
+  if (cache[id]) {
+    res.send(cache[id]);
+  } else {
+    client.query(query)
+      .then((resp) => {
+        cache[id] = resp.rows[0];
+        res.send(resp.rows[0]);
+      })
+      .catch((e) => {
+        res.send(e);
+      });
+  }
+
 });
 
 app.get('/:shoeID/colors/:style', ({ params }, res) => {
@@ -77,7 +77,6 @@ app.get('/:shoeID/colors/:style', ({ params }, res) => {
       res.send(resp.rows);
     })
     .catch((e) => {
-      console.log(e);
       res.send(e);
     });
 });
@@ -85,13 +84,13 @@ app.get('/:shoeID/colors/:style', ({ params }, res) => {
 app.post('/new/shoe', (req, res) => {
   const values = req.body; 
 
-  let shoe = new Shoe({
+  const shoe = new Shoe({
     shoeName: values.name,
     shoeColors: values.color,
     price: values.price,
     shoeLine: values.shoeline,
     image: values.image,
-    shoeType: values.shoetype
+    shoeType: values.shoetype,
   })
 
   shoe.save((err, data) => {

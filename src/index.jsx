@@ -5,7 +5,7 @@ import rand from './randShoe';
 
 require('./styles.css');
 
-ReactDOM.hydrate(
+ReactDOM.render(
   <App shoeID={rand} />,
   document.getElementById('colors-container'),
 );
