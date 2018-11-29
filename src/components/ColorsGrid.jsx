@@ -41,7 +41,6 @@ class ColorsGrid extends React.Component {
   render() {
     const { images, curShoe } = this.state;
     const { changeShoe } = this.props;
-    console.log('line 44 of images',images);
     return (
       <div className="shoe_colors_grid">
         {images.map((row, i) => <ColorsRow key={`row_${i + 1}`} changeShoe={changeShoe} curShoe={curShoe - (i * 5)} images={row} row={i.toString()} />)}
